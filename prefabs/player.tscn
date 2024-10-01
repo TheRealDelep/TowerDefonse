@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgjvh42yjvydb"]
+[gd_scene load_steps=7 format=3 uid="uid://dgjvh42yjvydb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6pow"]
 
@@ -10,6 +10,12 @@ albedo_color = Color(0.08, 0.08, 0.08, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_ct46n"]
 material = SubResource("StandardMaterial3D_0ou46")
 size = Vector3(0.75, 0.2, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vv1pj"]
+albedo_color = Color(0.923547, 0.563055, 0.829029, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4e2i0"]
+material = SubResource("StandardMaterial3D_vv1pj")
 
 [node name="player" type="CharacterBody3D"]
 
@@ -25,3 +31,7 @@ skeleton = NodePath("../..")
 [node name="sunglasses" type="MeshInstance3D" parent="model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.590213, 0.226114)
 mesh = SubResource("BoxMesh_ct46n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="model"]
+transform = Transform3D(0.325, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.787781, -0.146112)
+mesh = SubResource("SphereMesh_4e2i0")
