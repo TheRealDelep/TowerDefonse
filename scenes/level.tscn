@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://1a8q6j72jo1y"]
+
+[sub_resource type="Curve3D" id="Curve3D_3l8tp"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 4.5636, 0, -7.88651, 0, 0, 0, 0, 0, 0, 4.72359, 0, -5.35452, 0, 0, 0, 0, 0, 0, -5.33371, 0, -5.53871, 0, 0, 0, 0, 0, 0, -5.22319, 0, -2.77572, 0, 0, 0, 0, 0, 0, 4.39203, 0, -2.95992, 0, 0, 0, 0, 0, 0, 4.31835, 0, 3.45022, 0, 0, 0, 0, 0, 0, -4.78111, 0, 3.59758, 0, 0, 0, 0, 0, 0, -4.92846, 0, 8.09204),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[node name="Level" type="Node3D"]
+
+[node name="PathEnnemies" type="Path3D" parent="."]
+curve = SubResource("Curve3D_3l8tp")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="PathEnnemies"]
+transform = Transform3D(-0.998009, 0, -0.0630603, 0, 0.999999, 0, 0.0630603, 0, -0.998009, 4.5636, 0, -7.88651)
