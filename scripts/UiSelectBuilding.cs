@@ -19,7 +19,7 @@ public partial class UiSelectBuilding : Control
 		}
 		foreach (var model in towerChannel.TowerModels)
 		{
-            Button button = new Button(){ Text = model.Name};
+            Button button = new Button(){ Icon = model.Icon};
 			button.SizeFlagsHorizontal = SizeFlags.ExpandFill;
 			ContainerButton.AddChild(button);
 			button.Pressed += () => towerChannel.FireConstructionSelected(model);

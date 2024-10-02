@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="TowerModel" load_steps=3 format=3 uid="uid://d1q5j8k4oo57m"]
+[gd_resource type="Resource" script_class="TowerModel" load_steps=4 format=3 uid="uid://d1q5j8k4oo57m"]
 
+[ext_resource type="Texture2D" uid="uid://j12oa40miqoo" path="res://sprites/ui/ico_tower_a.png" id="1_bg8c5"]
 [ext_resource type="Script" path="res://scripts/TowerModel.cs" id="1_iiiji"]
-[ext_resource type="PackedScene" uid="uid://bg7qkrfv27j1x" path="res://prefabs/tower.tscn" id="1_q258o"]
+[ext_resource type="PackedScene" uid="uid://dle4ea7yfnkh8" path="res://prefabs/tower.tscn" id="1_q258o"]
 
 [resource]
 script = ExtResource("1_iiiji")
@@ -9,3 +10,4 @@ Name = "A"
 Cost = 10
 ConstructionTime = 5.0
 PrefabPath = ExtResource("1_q258o")
+Icon = ExtResource("1_bg8c5")
