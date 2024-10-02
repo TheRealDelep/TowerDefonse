@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dle4ea7yfnkh8"]
-
-[ext_resource type="PackedScene" uid="uid://b7fbu7er3rqfg" path="res://meshs/towera.glb" id="1_7dy85"]
-
-[node name="tower" type="Node3D"]
-
-[node name="model" parent="." instance=ExtResource("1_7dy85")]
