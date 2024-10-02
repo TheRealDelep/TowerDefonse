@@ -20,7 +20,7 @@ public partial class TowerSelectionView : CanvasGroup
     private void OnConstructionRequested(Vector3 worldPos, Vector2 screenPos) 
     {
         Position = screenPos;
-        Visible = true; 
+        Visible = true;
     }
 
     private void OnConstructionRequestCanceled() 

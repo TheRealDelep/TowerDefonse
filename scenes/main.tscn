@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkjvlmfray2yj"]
+[gd_scene load_steps=11 format=3 uid="uid://bkjvlmfray2yj"]
 
 [ext_resource type="PackedScene" uid="uid://dsbgqj1kbucbb" path="res://prefabs/ground.tscn" id="1_g7tel"]
-[ext_resource type="PackedScene" uid="uid://1fd2y4o86c4v" path="res://scenes/level.tscn" id="2_q18kf"]
+[ext_resource type="PackedScene" path="res://scenes/level.tscn" id="2_q18kf"]
 [ext_resource type="PackedScene" uid="uid://dgjvh42yjvydb" path="res://prefabs/player.tscn" id="2_y5pbe"]
+[ext_resource type="Resource" uid="uid://boarxrokpiyds" path="res://scriptable_objects/tower_construction_channel.tres" id="3_bnq0e"]
+[ext_resource type="Script" path="res://scripts/Test.cs" id="4_4muym"]
+[ext_resource type="Resource" uid="uid://d1q5j8k4oo57m" path="res://scriptable_objects/TowerA.tres" id="6_5arid"]
+[ext_resource type="Script" path="res://scripts/TowerManager.cs" id="7_647q3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_duhwp"]
 
@@ -26,6 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 moveSpeed = 10.0
 camera = NodePath("../camera")
 ground = NodePath("../ground")
+towerConstructionChannel = ExtResource("3_bnq0e")
 
 [node name="Level" parent="." instance=ExtResource("2_q18kf")]
 
@@ -35,3 +40,12 @@ environment = SubResource("Environment_b2qt6")
 
 [node name="directional_light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.631705, 0.775209, 0, -0.775209, 0.631705, 0, 17.4196, 0)
+
+[node name="test" type="Node3D" parent="."]
+script = ExtResource("4_4muym")
+towerConstructionChannel = ExtResource("3_bnq0e")
+towerModel = ExtResource("6_5arid")
+
+[node name="towers" type="Node3D" parent="."]
+script = ExtResource("7_647q3")
+channel = ExtResource("3_bnq0e")
