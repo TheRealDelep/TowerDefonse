@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Godot;
 
 public partial class PlayerController : CharacterBody3D
@@ -15,7 +16,14 @@ public partial class PlayerController : CharacterBody3D
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("LeftClick")) { target = GetClickTarget(); }
+        if (Input.IsActionJustPressed("LeftClick")) 
+        { 
+            target = GetClickTarget() switch 
+            {
+                null => null,
+                Vector3 v => v with { Y = Position.Y }
+            };  
+        }
     }
 
     private void Move(float delta) 
