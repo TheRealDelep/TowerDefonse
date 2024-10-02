@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://1a8q6j72jo1y"]
+[gd_scene load_steps=6 format=3 uid="uid://1fd2y4o86c4v"]
 
 [ext_resource type="Script" path="res://scripts/Level.cs" id="1_bohfj"]
-[ext_resource type="PackedScene" uid="uid://01wkyymv5gjy" path="res://prefabs/enemy.tscn" id="2_y72xd"]
+[ext_resource type="PackedScene" path="res://prefabs/enemy.tscn" id="2_y72xd"]
 [ext_resource type="PackedScene" uid="uid://dsbgqj1kbucbb" path="res://prefabs/ground.tscn" id="3_umuf7"]
-[ext_resource type="PackedScene" uid="uid://bcrmvgfrd4v7s" path="res://prefabs/nexus.tscn" id="4_tsp55"]
+[ext_resource type="PackedScene" path="res://prefabs/nexus.tscn" id="4_tsp55"]
 
 [sub_resource type="Curve3D" id="Curve3D_18qgm"]
 bake_interval = 19.89
@@ -21,6 +21,7 @@ Timer = NodePath("Timer")
 nexus = NodePath("Nexus")
 
 [node name="ground" parent="." instance=ExtResource("3_umuf7")]
+visible = false
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

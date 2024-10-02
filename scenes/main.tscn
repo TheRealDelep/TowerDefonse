@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkjvlmfray2yj"]
+[gd_scene load_steps=7 format=3 uid="uid://bkjvlmfray2yj"]
 
 [ext_resource type="PackedScene" uid="uid://dsbgqj1kbucbb" path="res://prefabs/ground.tscn" id="1_g7tel"]
+[ext_resource type="PackedScene" uid="uid://1fd2y4o86c4v" path="res://scenes/level.tscn" id="2_q18kf"]
 [ext_resource type="PackedScene" uid="uid://dgjvh42yjvydb" path="res://prefabs/player.tscn" id="2_y5pbe"]
-[ext_resource type="Resource" uid="uid://boarxrokpiyds" path="res://scriptable_objects/tower_construction_channel.tres" id="3_bnq0e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_duhwp"]
+
+[sub_resource type="Sky" id="Sky_yxol1"]
+sky_material = SubResource("ProceduralSkyMaterial_duhwp")
+
+[sub_resource type="Environment" id="Environment_b2qt6"]
+background_mode = 2
+sky = SubResource("Sky_yxol1")
+fog_enabled = true
+fog_light_color = Color(0.641674, 0.526368, 0.413319, 1)
+fog_density = 0.005
 
 [node name="main" type="Node3D"]
 
@@ -14,10 +26,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 moveSpeed = 10.0
 camera = NodePath("../camera")
 ground = NodePath("../ground")
-towerConstructionChannel = ExtResource("3_bnq0e")
+
+[node name="Level" parent="." instance=ExtResource("2_q18kf")]
 
 [node name="camera" type="Camera3D" parent="."]
-transform = Transform3D(-1, -2.54791e-08, 3.77898e-08, 6.32296e-10, 0.821309, 0.570484, -4.55725e-08, 0.570484, -0.821309, 0, 6.31854, -3.48006)
+transform = Transform3D(-1, 1.46053e-07, -3.83164e-08, 0, 0.253758, 0.967268, 1.50996e-07, 0.967268, -0.253758, 0, 33.479, -12.51)
+environment = SubResource("Environment_b2qt6")
 
 [node name="directional_light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.631705, 0.775209, 0, -0.775209, 0.631705, 0, 17.4196, 0)
