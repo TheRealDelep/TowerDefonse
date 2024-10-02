@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsaftp6y67nek"]
+[gd_scene load_steps=4 format=3 uid="uid://b0pdbsh53870t"]
 
 [ext_resource type="Script" path="res://scripts/UiMain.cs" id="1_pft3p"]
-[ext_resource type="PackedScene" uid="uid://dg5566ek2pkt2" path="res://scenes/ui_select_building.tscn" id="1_rn8ap"]
+[ext_resource type="PackedScene" uid="uid://qmjm6bcaupix" path="res://scenes/ui_select_building.tscn" id="1_rn8ap"]
 [ext_resource type="Resource" uid="uid://boarxrokpiyds" path="res://scriptable_objects/tower_construction_channel.tres" id="2_111um"]
 
 [node name="UiMain" type="Control" node_paths=PackedStringArray("uiSelectBuilding")]

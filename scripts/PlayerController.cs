@@ -8,7 +8,7 @@ public partial class PlayerController : CharacterBody3D
     [Export] private TowerConstructionChannel towerConstructionChannel;
 
     private Vector3? target = null;
-    private bool WalkingTowardConstructionSite = false;
+    private Vector3? constructionSite = null;
 
     public override void _PhysicsProcess(double delta)
     {
@@ -32,17 +32,17 @@ public partial class PlayerController : CharacterBody3D
 
             if (worldPos is null) { return; }
 
-            target = worldPos.Value with { Y = Position.Y };
+            constructionSite = worldPos.Value with { Y = Position.Y };
 
             towerConstructionChannel.FireConstructionSelectionRequest(worldPos.Value, GetViewport().GetMousePosition());
-            towerConstructionChannel.TowerSelected += OnConstructionSelected;
+            towerConstructionChannel.TowerSelected += OnTowerSelected;
         }
     }
 
-    private void OnConstructionSelected(TowerModel model)
+    private void OnTowerSelected(TowerModel model)
     {
-        // target = worldPosition with { Y = Position.Y };
-        WalkingTowardConstructionSite = true;
+        target = constructionSite;
+        towerConstructionChannel.TowerSelected -= OnTowerSelected;
     }
 
     private void Move(float delta) 
@@ -56,13 +56,14 @@ public partial class PlayerController : CharacterBody3D
         if (newDir.Dot(dir) < 0) 
         {
             moveDelta = target.Value - Position;
-            target = null;
 
-            if (WalkingTowardConstructionSite) 
+            if (constructionSite.HasValue && target.Value == constructionSite.Value) 
             {
                 towerConstructionChannel.FireConstructionSiteReached();
-                WalkingTowardConstructionSite = false;
+                constructionSite = null;
             }
+
+            target = null;
         }
 
         MoveAndCollide(moveDelta);

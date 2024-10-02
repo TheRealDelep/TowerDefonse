@@ -33,11 +33,13 @@ public partial class TowerConstructionChannel : Godot.Resource
 
     public void FireConstructionSelected(TowerModel model) 
     {
+        GD.Print("Construction selected");
         EmitSignal(SignalName.TowerSelected, model);
     }
 
     public void FireConstructionSiteReached() 
     {
+        GD.Print("Construction site reached");
         EmitSignal(SignalName.TowerSiteReached);
     }
 }

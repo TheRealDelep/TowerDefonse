@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dg5566ek2pkt2"]
+[gd_scene load_steps=3 format=3 uid="uid://qmjm6bcaupix"]
 
 [ext_resource type="Script" path="res://scripts/UiSelectBuilding.cs" id="1_er337"]
 [ext_resource type="Resource" uid="uid://boarxrokpiyds" path="res://scriptable_objects/tower_construction_channel.tres" id="2_xmdct"]

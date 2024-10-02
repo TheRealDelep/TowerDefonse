@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TowerModel" load_steps=3 format=3 uid="uid://05ap6iiieh61"]
 
-[ext_resource type="PackedScene" uid="uid://bg7qkrfv27j1x" path="res://prefabs/tower.tscn" id="1_jdnhp"]
+[ext_resource type="PackedScene" uid="uid://ca0rso3n0ok7j" path="res://prefabs/tower.tscn" id="1_jdnhp"]
 [ext_resource type="Script" path="res://scripts/TowerModel.cs" id="1_pi47e"]
 
 [resource]
