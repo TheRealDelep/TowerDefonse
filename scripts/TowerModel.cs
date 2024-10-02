@@ -8,4 +8,5 @@ public partial class TowerModel : Resource
     [Export] public float ConstructionTime;
 
     [Export] public PackedScene PrefabPath;
+    [Export] public Texture2D Icon;
 }
