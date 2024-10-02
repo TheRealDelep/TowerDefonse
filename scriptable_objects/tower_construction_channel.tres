@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="TowerConstructionChannel" load_steps=2 format=3 uid="uid://boarxrokpiyds"]
+
+[ext_resource type="Script" path="res://scripts/TowerConstructionChannel.cs" id="1_d5dvu"]
+
+[resource]
+script = ExtResource("1_d5dvu")
