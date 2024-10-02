@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c80imchtld4d7"]
+
+[node name="tower_creation_button" type="Button"]
+offset_right = 46.0
+offset_bottom = 51.0
+text = "A"

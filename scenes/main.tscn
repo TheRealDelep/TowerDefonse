@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkjvlmfray2yj"]
+[gd_scene load_steps=4 format=3 uid="uid://bkjvlmfray2yj"]
 
 [ext_resource type="PackedScene" uid="uid://dsbgqj1kbucbb" path="res://prefabs/ground.tscn" id="1_g7tel"]
 [ext_resource type="PackedScene" uid="uid://dgjvh42yjvydb" path="res://prefabs/player.tscn" id="2_y5pbe"]
+[ext_resource type="Resource" uid="uid://boarxrokpiyds" path="res://scriptable_objects/tower_construction_channel.tres" id="3_bnq0e"]
 
 [node name="main" type="Node3D"]
 
@@ -13,6 +14,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 moveSpeed = 10.0
 camera = NodePath("../camera")
 ground = NodePath("../ground")
+towerConstructionChannel = ExtResource("3_bnq0e")
 
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(-1, -2.54791e-08, 3.77898e-08, 6.32296e-10, 0.821309, 0.570484, -4.55725e-08, 0.570484, -0.821309, 0, 6.31854, -3.48006)

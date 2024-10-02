@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TowerModel" load_steps=2 format=3 uid="uid://d1q5j8k4oo57m"]
+
+[ext_resource type="Script" path="res://scripts/TowerModel.cs" id="1_iiiji"]
+
+[resource]
+script = ExtResource("1_iiiji")
+Name = "A"
+Cost = 10
+ConstructionTime = 5.0

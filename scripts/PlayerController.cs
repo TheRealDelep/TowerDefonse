@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using Godot;
 
 public partial class PlayerController : CharacterBody3D
@@ -6,6 +5,7 @@ public partial class PlayerController : CharacterBody3D
     [Export] private float moveSpeed;
     [Export] private Camera3D camera;
     [Export] private CollisionObject3D ground;
+    [Export] private TowerConstructionChannel towerConstructionChannel;
 
     private Vector3? target = null;
 
@@ -23,6 +23,15 @@ public partial class PlayerController : CharacterBody3D
                 null => null,
                 Vector3 v => v with { Y = Position.Y }
             };  
+        }
+
+        if (Input.IsActionJustPressed("RightClick")) 
+        {
+            var worldPos = GetClickTarget(); 
+
+            if (worldPos is null) { return; }
+
+            towerConstructionChannel.FireConstructionRequest(worldPos.Value, GetViewport().GetMousePosition());
         }
     }
 
