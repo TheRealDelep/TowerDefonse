@@ -9,14 +9,19 @@ public partial class TowerManager : Node3D
     
     public override void _Ready()
     {
-        channel.ConstructionSelected += OnConstructionSelected;
-        channel.ConstructionSiteReached += OnConstructionSiteReached;
+        channel.TowerSelected += OnConstructionSelected;
+        channel.TowerSiteReached += OnConstructionSiteReached;
+        channel.TowerRequested += OnConstructionRequested;
     }
 
-    private void OnConstructionSelected(TowerModel model, Vector3 position) 
+    private void OnConstructionRequested(Vector3 worldPos, Vector2 _)
+    {
+        constructionSitePosition = worldPos;
+    }
+
+    private void OnConstructionSelected(TowerModel model) 
     {
         towerToBuild = model;
-        constructionSitePosition = position;
     }
 
     private void OnConstructionSiteReached()

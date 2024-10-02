@@ -1,10 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ca0rso3n0ok7j"]
+[gd_scene load_steps=2 format=3 uid="uid://bg7qkrfv27j1x"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_q37kf"]
-size = Vector3(1, 3, 1)
+[ext_resource type="PackedScene" uid="uid://b7fbu7er3rqfg" path="res://meshs/towera.glb" id="1_7dy85"]
 
 [node name="tower" type="Node3D"]
 
-[node name="mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-mesh = SubResource("BoxMesh_q37kf")
+[node name="model" parent="." instance=ExtResource("1_7dy85")]

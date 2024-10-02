@@ -7,14 +7,14 @@ public partial class TowerSelectionView : CanvasGroup
 
     public override void _Ready()
     {
-        towerConstructionChannel.ConstructionRequested += OnConstructionRequested;
-        towerConstructionChannel.ConstructionRequestCanceled += OnConstructionRequestCanceled;
+        towerConstructionChannel.TowerRequested += OnConstructionRequested;
+        towerConstructionChannel.TowerRequestCanceled += OnConstructionRequestCanceled;
     }
 
     public override void _ExitTree()
     {
-        towerConstructionChannel.ConstructionRequested -= OnConstructionRequested;
-        towerConstructionChannel.ConstructionRequestCanceled -= OnConstructionRequestCanceled;
+        towerConstructionChannel.TowerRequested -= OnConstructionRequested;
+        towerConstructionChannel.TowerRequestCanceled -= OnConstructionRequestCanceled;
     }
 
     private void OnConstructionRequested(Vector3 worldPos, Vector2 screenPos) 

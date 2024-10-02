@@ -4,30 +4,40 @@ using Godot;
 [GlobalClass]
 public partial class TowerConstructionChannel : Godot.Resource
 {
-    public event Action<Vector3, Vector2> ConstructionRequested;
-    public event Action ConstructionRequestCanceled;
-    public event Action<TowerModel, Vector3> ConstructionSelected;
-    public event Action ConstructionSiteReached;
+    [Signal]
+    public delegate void TowerRequestedEventHandler(Vector3 worldPos, Vector2 screenPos);
+
+    [Signal]
+    public delegate void TowerRequestCanceledEventHandler();
+
+    [Signal]
+	public delegate void TowerSelectedEventHandler(TowerModel towerModel);
+
+    [Signal]
+	public delegate void TowerSiteReachedEventHandler();
+    
+    [Export]
+    public TowerModel[] TowerModels;
 
     public TowerConstructionChannel() {}
 
     public void FireConstructionSelectionRequest(Vector3 worldPos, Vector2 screenPos) 
     {
-        ConstructionRequested?.Invoke(worldPos, screenPos);
+        EmitSignal(SignalName.TowerRequested, worldPos, screenPos);
     }
 
     public void FireConstructionRequestCancel() 
     {
-        ConstructionRequestCanceled?.Invoke();
+        EmitSignal(SignalName.TowerRequestCanceled);
     }
 
-    public void FireConstructionSelected(TowerModel model, Vector3 worldPos) 
+    public void FireConstructionSelected(TowerModel model) 
     {
-        ConstructionSelected?.Invoke(model, worldPos);
+        EmitSignal(SignalName.TowerSelected, model);
     }
 
     public void FireConstructionSiteReached() 
     {
-        ConstructionSiteReached?.Invoke();
+        EmitSignal(SignalName.TowerSiteReached);
     }
 }

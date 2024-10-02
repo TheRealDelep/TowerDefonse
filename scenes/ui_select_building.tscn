@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg5566ek2pkt2"]
+
+[ext_resource type="Script" path="res://scripts/UiSelectBuilding.cs" id="1_er337"]
+[ext_resource type="Resource" uid="uid://boarxrokpiyds" path="res://scriptable_objects/tower_construction_channel.tres" id="2_xmdct"]
+
+[node name="UiSelectBuilding" type="Control" node_paths=PackedStringArray("ContainerButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_er337")
+ContainerButton = NodePath("HBoxContainer")
+towerChannel = ExtResource("2_xmdct")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonA" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Build A"
+
+[node name="ButtonB" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Build B"
+
+[node name="ButtonC" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Build C"

@@ -32,14 +32,16 @@ public partial class PlayerController : CharacterBody3D
 
             if (worldPos is null) { return; }
 
+            target = worldPos.Value with { Y = Position.Y };
+
             towerConstructionChannel.FireConstructionSelectionRequest(worldPos.Value, GetViewport().GetMousePosition());
-            towerConstructionChannel.ConstructionSelected += OnConstructionSelected;
+            towerConstructionChannel.TowerSelected += OnConstructionSelected;
         }
     }
 
-    private void OnConstructionSelected(TowerModel model, Vector3 worldPosition)
+    private void OnConstructionSelected(TowerModel model)
     {
-        target = worldPosition with { Y = Position.Y };
+        // target = worldPosition with { Y = Position.Y };
         WalkingTowardConstructionSite = true;
     }
 
