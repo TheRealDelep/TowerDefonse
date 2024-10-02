@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="TowerModel" load_steps=2 format=3 uid="uid://d1q5j8k4oo57m"]
+[gd_resource type="Resource" script_class="TowerModel" load_steps=3 format=3 uid="uid://d1q5j8k4oo57m"]
 
 [ext_resource type="Script" path="res://scripts/TowerModel.cs" id="1_iiiji"]
+[ext_resource type="PackedScene" uid="uid://ca0rso3n0ok7j" path="res://prefabs/tower.tscn" id="1_q258o"]
 
 [resource]
 script = ExtResource("1_iiiji")
 Name = "A"
 Cost = 10
 ConstructionTime = 5.0
+PrefabPath = ExtResource("1_q258o")
