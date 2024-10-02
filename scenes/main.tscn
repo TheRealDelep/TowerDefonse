@@ -6,12 +6,16 @@
 [node name="main" type="Node3D"]
 
 [node name="ground" parent="." instance=ExtResource("1_g7tel")]
+collision_layer = 2
 
-[node name="player" parent="." instance=ExtResource("2_y5pbe")]
+[node name="player" parent="." node_paths=PackedStringArray("camera", "ground") instance=ExtResource("2_y5pbe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+moveSpeed = 10.0
+camera = NodePath("../camera")
+ground = NodePath("../ground")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(-1, -2.54791e-08, 3.77898e-08, 6.32296e-10, 0.821309, 0.570484, -4.55725e-08, 0.570484, -0.821309, 0, 6.31854, -3.48006)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="directional_light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.631705, 0.775209, 0, -0.775209, 0.631705, 0, 17.4196, 0)

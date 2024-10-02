@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgjvh42yjvydb"]
+[gd_scene load_steps=8 format=3 uid="uid://dgjvh42yjvydb"]
+
+[ext_resource type="Script" path="res://scripts/PlayerController.cs" id="1_x62i5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6pow"]
 
@@ -11,7 +13,15 @@ albedo_color = Color(0.08, 0.08, 0.08, 1)
 material = SubResource("StandardMaterial3D_0ou46")
 size = Vector3(0.75, 0.2, 0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykyem"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8j2rg"]
+material = SubResource("StandardMaterial3D_ykyem")
+size = Vector3(0.2, 0.2, 1)
+
 [node name="player" type="CharacterBody3D"]
+script = ExtResource("1_x62i5")
 
 [node name="collision_shape" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_l6pow")
@@ -25,3 +35,8 @@ skeleton = NodePath("../..")
 [node name="sunglasses" type="MeshInstance3D" parent="model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.590213, 0.226114)
 mesh = SubResource("BoxMesh_ct46n")
+
+[node name="gun" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620823, 0.140694, 0.483848)
+mesh = SubResource("BoxMesh_8j2rg")
+skeleton = NodePath("")
