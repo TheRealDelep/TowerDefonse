@@ -1,16 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://01wkyymv5gjy"]
+[gd_scene load_steps=5 format=3 uid="uid://01wkyymv5gjy"]
+
+[ext_resource type="Texture2D" uid="uid://c4ctud0tcacbn" path="res://textures/ground.png" id="1_bxko4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_q1whu"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1gsea"]
+albedo_texture = ExtResource("1_bxko4")
+roughness = 0.25
+emission_enabled = true
+emission = Color(0.567656, 0.0316178, 0.335612, 1)
+
 [sub_resource type="SphereMesh" id="SphereMesh_1a1ff"]
 
-[node name="Enemy" type="StaticBody3D"]
+[node name="Enemy" type="CharacterBody3D"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
 shape = SubResource("SphereShape3D_q1whu")
 
 [node name="Model" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
+material_override = SubResource("StandardMaterial3D_1gsea")
 mesh = SubResource("SphereMesh_1a1ff")
 skeleton = NodePath("../..")

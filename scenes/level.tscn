@@ -1,16 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://1a8q6j72jo1y"]
+[gd_scene load_steps=6 format=3 uid="uid://1a8q6j72jo1y"]
 
-[sub_resource type="Curve3D" id="Curve3D_3l8tp"]
+[ext_resource type="Script" path="res://scripts/Level.cs" id="1_bohfj"]
+[ext_resource type="PackedScene" uid="uid://01wkyymv5gjy" path="res://prefabs/enemy.tscn" id="2_y72xd"]
+[ext_resource type="PackedScene" uid="uid://dsbgqj1kbucbb" path="res://prefabs/ground.tscn" id="3_umuf7"]
+[ext_resource type="PackedScene" uid="uid://bcrmvgfrd4v7s" path="res://prefabs/nexus.tscn" id="4_tsp55"]
+
+[sub_resource type="Curve3D" id="Curve3D_18qgm"]
+bake_interval = 19.89
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 4.5636, 0, -7.88651, 0, 0, 0, 0, 0, 0, 4.72359, 0, -5.35452, 0, 0, 0, 0, 0, 0, -5.33371, 0, -5.53871, 0, 0, 0, 0, 0, 0, -5.22319, 0, -2.77572, 0, 0, 0, 0, 0, 0, 4.39203, 0, -2.95992, 0, 0, 0, 0, 0, 0, 4.31835, 0, 3.45022, 0, 0, 0, 0, 0, 0, -4.78111, 0, 3.59758, 0, 0, 0, 0, 0, 0, -4.92846, 0, 8.09204),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 12.2575, 0, -24.243, 0, 0, 0, 0, 0, 0, 12.3136, 0, -17.4187, 0, 0, 0, 0, 0, 0, -17.6789, 0, -17.6368, 0, 0, 0, 0, 0, 0, -17.8246, 0, 2.19151, 0, 0, 0, 0, 0, 0, 18.0975, 0, 1.69138, 0, 0, 0, 0, 0, 0, 18.2714, 0, 17.4761, 0, 0, 0, 0, 0, 0, -11.4288, 0, 17.7497, 0, 0, 0, 0, 0, 0, -12.3594, 0, 26.0156),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 8
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" node_paths=PackedStringArray("PathEnemies", "Timer", "nexus")]
+script = ExtResource("1_bohfj")
+EnemyPrefab = ExtResource("2_y72xd")
+PathEnemies = NodePath("PathEnemies")
+Timer = NodePath("Timer")
+nexus = NodePath("Nexus")
 
-[node name="PathEnnemies" type="Path3D" parent="."]
-curve = SubResource("Curve3D_3l8tp")
+[node name="ground" parent="." instance=ExtResource("3_umuf7")]
 
-[node name="PathFollow3D" type="PathFollow3D" parent="PathEnnemies"]
-transform = Transform3D(-0.998009, 0, -0.0630603, 0, 0.999999, 0, 0.0630603, 0, -0.998009, 4.5636, 0, -7.88651)
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="PathEnemies" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785793, 0)
+curve = SubResource("Curve3D_18qgm")
+
+[node name="Nexus" parent="." instance=ExtResource("4_tsp55")]
+transform = Transform3D(-2, 0, 3.01992e-07, 0, 2, 0, -3.01992e-07, 0, -2, -12.2758, 0, 25.3531)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
