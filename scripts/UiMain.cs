@@ -9,6 +9,7 @@ public partial class UiMain : Control
 	public override void _Ready()
 	{
 		towerConstructionChannel.TowerRequested += ShowSelectedUI;
+		towerConstructionChannel.TowerSelected += (_) => uiSelectBuilding.Visible = false;
 		uiSelectBuilding.Visible = false;
 	}
 
