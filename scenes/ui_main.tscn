@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsaftp6y67nek"]
+
+[ext_resource type="Script" path="res://scripts/UiMain.cs" id="1_pft3p"]
+[ext_resource type="PackedScene" uid="uid://dg5566ek2pkt2" path="res://scenes/ui_select_building.tscn" id="1_rn8ap"]
+[ext_resource type="Resource" uid="uid://boarxrokpiyds" path="res://scriptable_objects/tower_construction_channel.tres" id="2_111um"]
+
+[node name="UiMain" type="Control" node_paths=PackedStringArray("uiSelectBuilding")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pft3p")
+uiSelectBuilding = NodePath("UiSelectBuilding")
+towerConstructionChannel = ExtResource("2_111um")
+
+[node name="UiSelectBuilding" parent="." instance=ExtResource("1_rn8ap")]
+layout_mode = 1
+offset_left = 702.0
+offset_top = 498.0
+offset_right = -55.0
+offset_bottom = -57.0

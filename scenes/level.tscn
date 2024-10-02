@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" path="res://prefabs/nexus.tscn" id="4_tsp55"]
 
 [sub_resource type="Curve3D" id="Curve3D_18qgm"]
-bake_interval = 19.89
+bake_interval = 0.01
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 12.2575, 0, -24.243, 0, 0, 0, 0, 0, 0, 12.3136, 0, -17.4187, 0, 0, 0, 0, 0, 0, -17.6789, 0, -17.6368, 0, 0, 0, 0, 0, 0, -17.8246, 0, 2.19151, 0, 0, 0, 0, 0, 0, 18.0975, 0, 1.69138, 0, 0, 0, 0, 0, 0, 18.2714, 0, 17.4761, 0, 0, 0, 0, 0, 0, -11.4288, 0, 17.7497, 0, 0, 0, 0, 0, 0, -12.3594, 0, 26.0156),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)

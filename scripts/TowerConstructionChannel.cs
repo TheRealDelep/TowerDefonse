@@ -4,24 +4,32 @@ using Godot;
 [GlobalClass]
 public partial class TowerConstructionChannel : Godot.Resource
 {
-    public event Action<Vector3, Vector2> ConstructionRequested;
-    public event Action ConstructionRequestCanceled;
-    public event Action<TowerModel, Vector3> ConstructionSelected;
+    [Signal]
+    public delegate void ConstructionRequestedEventHandler(Vector3 worldPos, Vector2 screenPos);
+
+    [Signal]
+    public delegate void ConstructionRequestCanceledEventHandler();
+
+    [Signal]
+	public delegate void BuildingSelectedEventHandler(TowerModel towerModel);
+    
+    [Export]
+    public TowerModel[] TowerModels;
 
     public TowerConstructionChannel() {}
 
     public void FireConstructionRequest(Vector3 worldPos, Vector2 screenPos) 
     {
-        ConstructionRequested?.Invoke(worldPos, screenPos);
+        EmitSignal(SignalName.ConstructionRequested, worldPos, screenPos);
     }
 
     public void FireConstructionRequestCancel() 
     {
-
+        EmitSignal(SignalName.ConstructionRequested);
     }
 
-    public void FireConstructionSelected(TowerModel model, Vector3 worldPos) 
+    public void FireConstructionSelected(TowerModel model) 
     {
-
+        EmitSignal(SignalName.BuildingSelected, model);
     }
 }
