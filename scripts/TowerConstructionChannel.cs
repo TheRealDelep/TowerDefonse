@@ -18,7 +18,7 @@ public partial class TowerConstructionChannel : Godot.Resource
 
     public TowerConstructionChannel() {}
 
-    public void FireConstructionRequest(Vector3 worldPos, Vector2 screenPos) 
+    public void FireConstructionSelectionRequest(Vector3 worldPos, Vector2 screenPos) 
     {
         EmitSignal(SignalName.ConstructionRequested, worldPos, screenPos);
     }
