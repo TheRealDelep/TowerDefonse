@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://01wkyymv5gjy"]
+[gd_scene load_steps=6 format=3 uid="uid://01wkyymv5gjy"]
 
+[ext_resource type="Script" path="res://scripts/Enemy.cs" id="1_4frs6"]
 [ext_resource type="Texture2D" uid="uid://c4ctud0tcacbn" path="res://textures/ground.png" id="1_bxko4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_q1whu"]
@@ -14,6 +15,7 @@ emission = Color(0.567656, 0.0316178, 0.335612, 1)
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 4
+script = ExtResource("1_4frs6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)

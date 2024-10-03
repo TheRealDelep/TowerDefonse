@@ -35,23 +35,33 @@ public partial class Level : Node3D
 	public void BodyEntered(Node3D body)
 	{
 		if(countEnemies >= 10) return;
-        EnemyPath enemyPath = EnemyPaths.First(ep => ep.Enemy == body);
+
+		if(body is Enemy)
+		{
+			KillEnemy(body as Enemy);
+			countEnemies += 1;
+			if(countEnemies >= 10) EmitSignal(SignalName.CastleDestroyed);
+		}
+	}
+
+	public void KillEnemy(Enemy enemy)
+	{
+		EnemyPath enemyPath = EnemyPaths.First(ep => ep.Enemy == enemy);
 		EnemyPaths.Remove(enemyPath);
 		enemyPath.Enemy.QueueFree();
 		enemyPath.PathFollow3D.QueueFree();
-		countEnemies += 1;
-		if(countEnemies >= 10) EmitSignal(SignalName.CastleDestroyed);
 	}
 
 	public void SpawnEnemy()
 	{
-        Node3D instance = EnemyPrefab.Instantiate<Node3D>();
+        Enemy instance = EnemyPrefab.Instantiate<Enemy>();
         PathFollow3D pathFollow = new PathFollow3D();
         
 		EnemyPaths.Add(new EnemyPath(){Enemy = instance, PathFollow3D = pathFollow});
 		PathEnemies.AddChild(pathFollow);
 		pathFollow.ProgressRatio = 0.0f;
 		instance.Visible = false;
+		instance.EnemyShouldDestroy += (enemy) => KillEnemy(enemy);
 		GetParent().AddChild(instance);
 		Timer.Start(1 + random.NextDouble());
 	}
