@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgjvh42yjvydb"]
+[gd_scene load_steps=10 format=3 uid="uid://dgjvh42yjvydb"]
 
 [ext_resource type="Script" path="res://scripts/PlayerController.cs" id="1_x62i5"]
 
@@ -20,6 +20,13 @@ albedo_color = Color(0, 0, 0, 1)
 material = SubResource("StandardMaterial3D_ykyem")
 size = Vector3(0.2, 0.2, 1)
 
+[sub_resource type="SphereMesh" id="SphereMesh_b01by"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tf8j4"]
+albedo_color = Color(1, 0.188632, 0.845623, 1)
+emission_enabled = true
+emission = Color(0.733333, 0.188235, 0.690196, 1)
+
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_x62i5")
 
@@ -40,3 +47,8 @@ mesh = SubResource("BoxMesh_ct46n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620823, 0.140694, 0.483848)
 mesh = SubResource("BoxMesh_8j2rg")
 skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.767743, -0.0897922)
+mesh = SubResource("SphereMesh_b01by")
+surface_material_override/0 = SubResource("StandardMaterial3D_tf8j4")

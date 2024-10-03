@@ -19,11 +19,10 @@ public partial class Level : Node3D
 	[Export]
 	public Timer Timer;
 	private Random random = new Random();
-	[Export]
-	public  Area3D nexus;
+	[Export] public  Area3D nexus;
 	public float countEnemies = 0;
-	[Signal]
-	public delegate void CastleDestroyedEventHandler();
+	[Export] public GoldManager GoldenManager;
+	[Signal] public delegate void CastleDestroyedEventHandler();
 
 	public override void _Ready()
 	{
@@ -38,18 +37,21 @@ public partial class Level : Node3D
 
 		if(body is Enemy)
 		{
-			KillEnemy(body as Enemy);
+			KillEnemy(body as Enemy, false);
 			countEnemies += 1;
 			if(countEnemies >= 10) EmitSignal(SignalName.CastleDestroyed);
 		}
 	}
 
-	public void KillEnemy(Enemy enemy)
+	public void KillEnemy(Enemy enemy, bool increaseCoins = true)
 	{
+		if(enemy.IsQueuedForDeletion()) return;
+		GD.Print("KillEnemy ", enemy.Name);
 		EnemyPath enemyPath = EnemyPaths.First(ep => ep.Enemy == enemy);
 		EnemyPaths.Remove(enemyPath);
 		enemyPath.Enemy.QueueFree();
 		enemyPath.PathFollow3D.QueueFree();
+		GoldenManager.CurrentGold += 1;
 	}
 
 	public void SpawnEnemy()
@@ -63,7 +65,8 @@ public partial class Level : Node3D
 		instance.Visible = false;
 		instance.EnemyShouldDestroy += (enemy) => KillEnemy(enemy);
 		GetParent().AddChild(instance);
-		Timer.Start(1 + random.NextDouble());
+
+		Timer.Start(Timer.WaitTime - GetProcessDeltaTime());
 	}
 
 	public override void _Process(double delta)

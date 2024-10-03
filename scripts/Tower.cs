@@ -14,6 +14,9 @@ public partial class Tower : Node3D
     private static Pool<TowerBullet> bulletPool;
 
     private float timeSinceLastFire;
+
+    [Export] private Node3D head;
+    [Export] private Node3D StartBullet;
     [Export] private Slider slider;
 
     public override void _Ready()
@@ -43,9 +46,10 @@ public partial class Tower : Node3D
                 GD.Print("Found an enemy");
                 timeSinceLastFire = 0;
                 var bullet = bulletPool.GetOne();
-                bullet.Position = Position;
+                bullet.Position = StartBullet.GlobalPosition;
                 bullet.target = enemy;
                 bullet.Speed = projectileSpeed;
+                head.LookAt(enemy.Position, Vector3.Up, true);
                 break; 
             }
         }
