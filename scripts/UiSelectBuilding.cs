@@ -10,7 +10,6 @@ public partial class UiSelectBuilding : Control
 
 	public override void _Ready()
 	{
-		
 		foreach (var child in ContainerButton.GetChildren())
 		{
 			ContainerButton.RemoveChild(child);
