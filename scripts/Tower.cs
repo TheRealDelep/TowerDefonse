@@ -14,6 +14,7 @@ public partial class Tower : Node3D
     private static Pool<TowerBullet> bulletPool;
 
     private float timeSinceLastFire;
+    [Export] private Slider slider;
 
     public override void _Ready()
     {
@@ -24,6 +25,7 @@ public partial class Tower : Node3D
     public override void _Process(double delta)
     {
         timeSinceLastFire += (float)delta;
+        slider.Value = timeSinceLastFire;
     }
 
     public override void _PhysicsProcess(double delta)

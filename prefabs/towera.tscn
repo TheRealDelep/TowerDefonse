@@ -1,23 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://dle4ea7yfnkh8"]
+[gd_scene load_steps=8 format=3 uid="uid://dle4ea7yfnkh8"]
 
 [ext_resource type="Script" path="res://scripts/Tower.cs" id="1_36jaj"]
 [ext_resource type="PackedScene" uid="uid://b7fbu7er3rqfg" path="res://meshs/towera.glb" id="1_ijr2g"]
+[ext_resource type="PackedScene" uid="uid://co1y2ox3y3uhy" path="res://scenes/ui_tower.tscn" id="3_mbedf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3vgaa"]
 radius = 10.0
 
-[node name="tower" type="Node3D" node_paths=PackedStringArray("detectionArea")]
+[sub_resource type="PlaneMesh" id="PlaneMesh_jrivv"]
+size = Vector2(1, 0.2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1c666"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uittw"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission_energy_multiplier = 4.94
+emission_texture = SubResource("ViewportTexture_1c666")
+
+[node name="tower" type="Node3D" node_paths=PackedStringArray("detectionArea", "head", "StartBullet", "slider")]
+transform = Transform3D(0.996195, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.996195, 0, 0, 0)
 script = ExtResource("1_36jaj")
 radius = 10.0
 projectileSpeed = 25.0
 fireRateInSeconds = 2.5
 bulletPath = "res://prefabs/bullet.tscn"
 detectionArea = NodePath("Area3D")
+head = NodePath("model/TowerA/Head")
+StartBullet = NodePath("model/TowerA/Head/Node3D")
+slider = NodePath("SubViewport/UiTower/Panel/HSlider")
 
 [node name="model" parent="." instance=ExtResource("1_ijr2g")]
+
+[node name="Node3D" type="Node3D" parent="model/TowerA/Head" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.776787, 1.30317, 1.32218)
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_3vgaa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.03224, 0, -0.177797, 0, 2.04, 0, 0.177797, 0, -2.03224, 0, 2, 0)
+mesh = SubResource("PlaneMesh_jrivv")
+skeleton = NodePath("../SubViewport/UiTower")
+surface_material_override/0 = SubResource("StandardMaterial3D_uittw")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(500, 100)
+
+[node name="UiTower" parent="SubViewport" instance=ExtResource("3_mbedf")]
+
+[editable path="model"]
+[editable path="SubViewport/UiTower"]

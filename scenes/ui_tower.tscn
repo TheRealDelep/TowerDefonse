@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://co1y2ox3y3uhy"]
+
+[ext_resource type="Texture2D" uid="uid://d15hl7n51eloy" path="res://sprites/grab_slider.png" id="1_swexu"]
+
+[node name="UiTower" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSlider" type="HSlider" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_icons/grabber = ExtResource("1_swexu")
+max_value = 1.0
+step = 0.01
+value = 0.41

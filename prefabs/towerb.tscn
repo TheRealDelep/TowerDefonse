@@ -1,7 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://r33teydikn1e"]
+[gd_scene load_steps=4 format=3 uid="uid://r33teydikn1e"]
 
 [ext_resource type="PackedScene" uid="uid://dk385mhke7jum" path="res://meshs/towerb.glb" id="1_hrony"]
+[ext_resource type="Script" path="res://scripts/Tower.cs" id="1_mak5c"]
 
-[node name="tower" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_jjo7h"]
+radius = 10.0
+
+[node name="tower" type="Node3D" node_paths=PackedStringArray("detectionArea", "head", "StartBullet")]
+script = ExtResource("1_mak5c")
+projectileSpeed = 20.0
+fireRateInSeconds = 2.0
+bulletPath = "res://prefabs/bullet.tscn"
+detectionArea = NodePath("Area3D")
+head = NodePath("towerb/TowerB/Head_001")
+StartBullet = NodePath("towerb/TowerB/Head_001/Node3D")
 
 [node name="towerb" parent="." instance=ExtResource("1_hrony")]
+
+[node name="Node3D" type="Node3D" parent="towerb/TowerB/Head_001" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.628093, 1.01384, 1.04682)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_jjo7h")
+
+[editable path="towerb"]
