@@ -3,6 +3,7 @@ using Godot;
 public partial class TowerManager : Node3D
 {
     [Export] private TowerConstructionChannel channel;
+    [Export] private GoldManager goldManager;
 
     public ConstructionRequest CurrentConstructionRequest;
     
@@ -40,6 +41,12 @@ public partial class TowerManager : Node3D
 
     private void OnConstructionSelected(TowerModel model) 
     {
+        if (model.Cost > goldManager.CurrentGold)
+        {
+            return;
+        }
+
+        goldManager.CurrentGold -= model.Cost;
         CurrentConstructionRequest.Model = model;
         CurrentConstructionRequest.State = ConstructionEnumState.Building;
         GD.Print($"Construction Selected: model: {CurrentConstructionRequest.Model}, position {CurrentConstructionRequest.Position}, State: {CurrentConstructionRequest.State}");
