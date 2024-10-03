@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dsaftp6y67nek"]
 
 [ext_resource type="Script" path="res://scripts/UiMain.cs" id="1_pft3p"]
-[ext_resource type="PackedScene" uid="uid://dg5566ek2pkt2" path="res://scenes/ui_select_building.tscn" id="1_rn8ap"]
+[ext_resource type="PackedScene" uid="uid://qmjm6bcaupix" path="res://scenes/ui_select_building.tscn" id="1_rn8ap"]
 [ext_resource type="Resource" uid="uid://boarxrokpiyds" path="res://scriptable_objects/tower_construction_channel.tres" id="2_111um"]
 [ext_resource type="PackedScene" uid="uid://dah3jqhxxonhx" path="res://scenes/ui_hud_game.tscn" id="3_cwwc7"]
 [ext_resource type="PackedScene" uid="uid://dtoggnb8qm2mc" path="res://scenes/ui_game_over.tscn" id="4_ejpef"]

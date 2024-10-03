@@ -1,7 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dle4ea7yfnkh8"]
+[gd_scene load_steps=4 format=3 uid="uid://c6rbkf2l58wwf"]
 
+[ext_resource type="Script" path="res://scripts/Tower.cs" id="1_36jaj"]
 [ext_resource type="PackedScene" uid="uid://b7fbu7er3rqfg" path="res://meshs/towera.glb" id="1_ijr2g"]
 
-[node name="tower" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_3vgaa"]
+radius = 10.0
+
+[node name="tower" type="Node3D" node_paths=PackedStringArray("detectionArea")]
+script = ExtResource("1_36jaj")
+radius = 10.0
+projectileSpeed = 25.0
+fireRateInSeconds = 2.5
+bulletPath = "res://prefabs/bullet.tscn"
+detectionArea = NodePath("Area3D")
 
 [node name="model" parent="." instance=ExtResource("1_ijr2g")]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_3vgaa")
