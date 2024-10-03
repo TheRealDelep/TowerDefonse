@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6rbkf2l58wwf"]
+[gd_scene load_steps=4 format=3 uid="uid://dle4ea7yfnkh8"]
 
 [ext_resource type="Script" path="res://scripts/Tower.cs" id="1_36jaj"]
 [ext_resource type="PackedScene" uid="uid://b7fbu7er3rqfg" path="res://meshs/towera.glb" id="1_ijr2g"]
