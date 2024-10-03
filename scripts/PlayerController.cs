@@ -7,8 +7,14 @@ public partial class PlayerController : CharacterBody3D
     [Export] private CollisionObject3D ground;
     [Export] private TowerConstructionChannel towerConstructionChannel;
 
+    [Export] private TowerManager towerManager;
+
     private Vector3? target = null;
-    private bool WalkingTowardConstructionSite = false;
+
+    public override void _Ready()
+    {
+        towerConstructionChannel.TowerSelected += OnTowerSelected;
+    }
 
     public override void _PhysicsProcess(double delta)
     {
@@ -19,11 +25,22 @@ public partial class PlayerController : CharacterBody3D
     {
         if (Input.IsActionJustPressed("LeftClick")) 
         { 
+            if (towerManager.CurrentConstructionRequest.State is ConstructionEnumState.WaitingForModel) 
+            {
+                return;
+            }
+
             target = GetClickTarget() switch 
             {
                 null => null,
                 Vector3 v => v with { Y = Position.Y }
             };  
+
+            if (target is not null &&
+                towerManager.CurrentConstructionRequest.State is not ConstructionEnumState.None) 
+            {
+                towerConstructionChannel.FireConstructionRequestCancel();
+            }
         }
 
         if (Input.IsActionJustPressed("RightClick")) 
@@ -32,17 +49,16 @@ public partial class PlayerController : CharacterBody3D
 
             if (worldPos is null) { return; }
 
-            target = worldPos.Value with { Y = Position.Y };
-
             towerConstructionChannel.FireConstructionSelectionRequest(worldPos.Value, GetViewport().GetMousePosition());
-            towerConstructionChannel.TowerSelected += OnConstructionSelected;
         }
     }
 
-    private void OnConstructionSelected(TowerModel model)
+    private void OnTowerSelected(TowerModel model)
     {
-        // target = worldPosition with { Y = Position.Y };
-        WalkingTowardConstructionSite = true;
+        target = towerManager.CurrentConstructionRequest.Position with 
+        {
+            Y = Position.Y
+        };
     }
 
     private void Move(float delta) 
@@ -56,13 +72,13 @@ public partial class PlayerController : CharacterBody3D
         if (newDir.Dot(dir) < 0) 
         {
             moveDelta = target.Value - Position;
-            target = null;
 
-            if (WalkingTowardConstructionSite) 
+            if (towerManager.CurrentConstructionRequest.State is ConstructionEnumState.Building)
             {
                 towerConstructionChannel.FireConstructionSiteReached();
-                WalkingTowardConstructionSite = false;
             }
+
+            target = null;
         }
 
         MoveAndCollide(moveDelta);
