@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsaftp6y67nek"]
+[gd_scene load_steps=5 format=3 uid="uid://dsaftp6y67nek"]
 
 [ext_resource type="Script" path="res://scripts/UiMain.cs" id="1_pft3p"]
 [ext_resource type="PackedScene" uid="uid://dg5566ek2pkt2" path="res://scenes/ui_select_building.tscn" id="1_rn8ap"]
 [ext_resource type="Resource" uid="uid://boarxrokpiyds" path="res://scriptable_objects/tower_construction_channel.tres" id="2_111um"]
+[ext_resource type="PackedScene" uid="uid://dfneqoimtjxqx" path="res://scenes/ui_game_over.tscn" id="4_ejpef"]
 
-[node name="UiMain" type="Control" node_paths=PackedStringArray("uiSelectBuilding")]
+[node name="UiMain" type="Control" node_paths=PackedStringArray("uiSelectBuilding", "gameOverScene", "gameOverTimer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,11 +14,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pft3p")
 uiSelectBuilding = NodePath("UiSelectBuilding")
+gameOverScene = NodePath("UIGameOver")
+gameOverTimer = NodePath("UIGameOver/Timer")
 towerConstructionChannel = ExtResource("2_111um")
 
 [node name="UiSelectBuilding" parent="." instance=ExtResource("1_rn8ap")]
+visible = false
 layout_mode = 1
-offset_left = 702.0
-offset_top = 498.0
-offset_right = -55.0
-offset_bottom = -57.0
+anchors_preset = -1
+anchor_left = 0.609
+anchor_top = 0.769
+anchor_right = 0.952
+anchor_bottom = 0.912
+offset_left = 0.431946
+offset_top = -0.312042
+offset_right = 0.296021
+offset_bottom = 0.0239868
+
+[node name="UIGameOver" parent="." instance=ExtResource("4_ejpef")]
+visible = false
+layout_mode = 1
+
+[editable path="UIGameOver"]

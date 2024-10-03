@@ -21,7 +21,9 @@ fog_density = 0.005
 
 [node name="main" type="Node3D"]
 
-[node name="UiMain" parent="." instance=ExtResource("4_1tcm6")]
+[node name="UiMain" parent="." node_paths=PackedStringArray("level", "main") instance=ExtResource("4_1tcm6")]
+level = NodePath("../Level")
+main = NodePath("..")
 
 [node name="ground" parent="." instance=ExtResource("1_g7tel")]
 collision_layer = 2
@@ -45,3 +47,6 @@ transform = Transform3D(1, 0, 0, 0, 0.631705, 0.775209, 0, -0.775209, 0.631705, 
 [node name="towers" type="Node3D" parent="."]
 script = ExtResource("7_647q3")
 channel = ExtResource("3_bnq0e")
+
+[editable path="UiMain"]
+[editable path="UiMain/UIGameOver"]

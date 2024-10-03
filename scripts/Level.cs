@@ -19,25 +19,28 @@ public partial class Level : Node3D
 	[Export]
 	public Timer Timer;
 	private Random random = new Random();
-	
 	[Export]
 	public  Area3D nexus;
 	public float countEnemies = 0;
+	[Signal]
+	public delegate void CastleDestroyedEventHandler();
 
 	public override void _Ready()
 	{
 		Timer.Timeout += SpawnEnemy;
-		// (GetNode("ground") as Node3D).Visible = false;
+		(GetNode("ground") as Node3D).Visible = false;
 		nexus.BodyEntered += BodyEntered;
 	}
 
 	public void BodyEntered(Node3D body)
 	{
+		if(countEnemies >= 10) return;
         EnemyPath enemyPath = EnemyPaths.First(ep => ep.Enemy == body);
 		EnemyPaths.Remove(enemyPath);
 		enemyPath.Enemy.QueueFree();
 		enemyPath.PathFollow3D.QueueFree();
 		countEnemies += 1;
+		if(countEnemies >= 10) EmitSignal(SignalName.CastleDestroyed);
 	}
 
 	public void SpawnEnemy()

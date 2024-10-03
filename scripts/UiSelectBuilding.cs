@@ -2,7 +2,6 @@ using Godot;
 
 public partial class UiSelectBuilding : Control
 {
-	
 	[Export]
 	private Container ContainerButton;
 
