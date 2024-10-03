@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://r33teydikn1e"]
 
 [ext_resource type="PackedScene" uid="uid://dk385mhke7jum" path="res://meshs/towerb.glb" id="1_hrony"]
-[ext_resource type="Script" path="res://scripts/Tower.cs" id="1_mak5c"]
+[ext_resource type="Script" path="res://scripts/tower/Tower.cs" id="1_mak5c"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jjo7h"]
 radius = 10.0

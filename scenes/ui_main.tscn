@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://dsaftp6y67nek"]
 
-[ext_resource type="Script" path="res://scripts/UiMain.cs" id="1_pft3p"]
+[ext_resource type="Script" path="res://scripts/ui/UiMain.cs" id="1_pft3p"]
 [ext_resource type="PackedScene" uid="uid://qmjm6bcaupix" path="res://scenes/ui_select_building.tscn" id="1_rn8ap"]
 [ext_resource type="Resource" uid="uid://boarxrokpiyds" path="res://scriptable_objects/tower_construction_channel.tres" id="2_111um"]
 [ext_resource type="PackedScene" uid="uid://dah3jqhxxonhx" path="res://scenes/ui_hud_game.tscn" id="3_cwwc7"]
 [ext_resource type="PackedScene" uid="uid://dtoggnb8qm2mc" path="res://scenes/ui_game_over.tscn" id="4_ejpef"]
 
-[node name="UiMain" type="Control" node_paths=PackedStringArray("uiSelectBuilding", "gameOverScene", "hudCoins", "hudHitPoint", "gameOverTimer")]
+[node name="UIMain" type="Control" node_paths=PackedStringArray("uiSelectBuilding", "gameOverScene", "gameOverTimer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,17 +14,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pft3p")
-uiSelectBuilding = NodePath("UiSelectBuilding")
+uiSelectBuilding = NodePath("UISelectBuilding")
 gameOverScene = NodePath("UIGameOver")
-hudCoins = NodePath("UiHudGame/Coins")
-hudHitPoint = NodePath("UiHudGame/HP")
 gameOverTimer = NodePath("UIGameOver/Timer")
 towerConstructionChannel = ExtResource("2_111um")
 
 [node name="UiHudGame" parent="." instance=ExtResource("3_cwwc7")]
 layout_mode = 1
 
-[node name="UiSelectBuilding" parent="." instance=ExtResource("1_rn8ap")]
+[node name="UISelectBuilding" parent="." instance=ExtResource("1_rn8ap")]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -41,5 +39,4 @@ offset_bottom = 0.0239868
 visible = false
 layout_mode = 1
 
-[editable path="UiHudGame"]
 [editable path="UIGameOver"]

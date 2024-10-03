@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dle4ea7yfnkh8"]
 
-[ext_resource type="Script" path="res://scripts/Tower.cs" id="1_36jaj"]
+[ext_resource type="Script" path="res://scripts/tower/Tower.cs" id="1_36jaj"]
 [ext_resource type="PackedScene" uid="uid://b7fbu7er3rqfg" path="res://meshs/towera.glb" id="1_ijr2g"]
 [ext_resource type="PackedScene" uid="uid://co1y2ox3y3uhy" path="res://scenes/ui_tower.tscn" id="3_mbedf"]
 

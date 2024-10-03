@@ -1,12 +1,17 @@
-[gd_scene format=3 uid="uid://dah3jqhxxonhx"]
+[gd_scene load_steps=2 format=3 uid="uid://dah3jqhxxonhx"]
 
-[node name="UiHudGame" type="Control"]
+[ext_resource type="Script" path="res://scripts/ui/UIHudGame.cs" id="1_af504"]
+
+[node name="UiHudGame" type="Control" node_paths=PackedStringArray("hudCoins", "hudHitPoint")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_af504")
+hudCoins = NodePath("Coins")
+hudHitPoint = NodePath("HP")
 
 [node name="Coins" type="Label" parent="."]
 layout_mode = 1

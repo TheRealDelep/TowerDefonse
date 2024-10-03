@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TowerConstructionChannel" load_steps=4 format=3 uid="uid://boarxrokpiyds"]
 
-[ext_resource type="Script" path="res://scripts/TowerConstructionChannel.cs" id="1_d5dvu"]
+[ext_resource type="Script" path="res://scripts/tower/TowerConstructionChannel.cs" id="1_d5dvu"]
 [ext_resource type="Resource" uid="uid://d1q5j8k4oo57m" path="res://scriptable_objects/TowerA.tres" id="1_v5875"]
 [ext_resource type="Resource" uid="uid://05ap6iiieh61" path="res://scriptable_objects/TowerB.tres" id="2_5rhvn"]
 

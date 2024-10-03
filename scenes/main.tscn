@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dgjvh42yjvydb" path="res://prefabs/player.tscn" id="2_y5pbe"]
 [ext_resource type="Resource" uid="uid://boarxrokpiyds" path="res://scriptable_objects/tower_construction_channel.tres" id="3_bnq0e"]
 [ext_resource type="PackedScene" uid="uid://dsaftp6y67nek" path="res://scenes/ui_main.tscn" id="4_1tcm6"]
-[ext_resource type="Script" path="res://scripts/TowerManager.cs" id="7_647q3"]
+[ext_resource type="Script" path="res://scripts/tower/TowerManager.cs" id="7_647q3"]
 [ext_resource type="Script" path="res://scripts/GoldManager.cs" id="7_jyomb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_duhwp"]
