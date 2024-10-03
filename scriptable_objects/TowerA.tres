@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://j12oa40miqoo" path="res://sprites/ui/ico_tower_a.png" id="1_bg8c5"]
 [ext_resource type="Script" path="res://scripts/TowerModel.cs" id="1_iiiji"]
-[ext_resource type="PackedScene" path="res://prefabs/towera.tscn" id="1_q258o"]
+[ext_resource type="PackedScene" uid="uid://dle4ea7yfnkh8" path="res://prefabs/towera.tscn" id="1_q258o"]
 
 [resource]
 script = ExtResource("1_iiiji")
