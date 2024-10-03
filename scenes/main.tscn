@@ -22,9 +22,10 @@ fog_density = 0.005
 
 [node name="main" type="Node3D"]
 
-[node name="UiMain" parent="." node_paths=PackedStringArray("level", "main") instance=ExtResource("4_1tcm6")]
+[node name="UiMain" parent="." node_paths=PackedStringArray("level", "main", "gold") instance=ExtResource("4_1tcm6")]
 level = NodePath("../Level")
 main = NodePath("..")
+gold = NodePath("../GoldManager")
 
 [node name="ground" parent="." instance=ExtResource("1_g7tel")]
 collision_layer = 2

@@ -14,7 +14,7 @@ public partial class GoldManager : Node
         {
             timer = 0;
             CurrentGold += 1;
-            GD.Print($"{CurrentGold}");
+            GD.Print($"CurrentGold {CurrentGold}");
         }
     }
 }
