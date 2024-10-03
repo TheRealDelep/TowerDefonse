@@ -26,12 +26,13 @@ fog_density = 0.005
 [node name="ground" parent="." instance=ExtResource("1_g7tel")]
 collision_layer = 2
 
-[node name="player" parent="." node_paths=PackedStringArray("camera", "ground") instance=ExtResource("2_y5pbe")]
+[node name="player" parent="." node_paths=PackedStringArray("camera", "ground", "towerManager") instance=ExtResource("2_y5pbe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 moveSpeed = 10.0
 camera = NodePath("../camera")
 ground = NodePath("../ground")
 towerConstructionChannel = ExtResource("3_bnq0e")
+towerManager = NodePath("../towers")
 
 [node name="Level" parent="." instance=ExtResource("2_q18kf")]
 
