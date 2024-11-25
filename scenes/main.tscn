@@ -22,9 +22,8 @@ fog_density = 0.005
 
 [node name="main" type="Node3D"]
 
-[node name="UiMain" parent="." node_paths=PackedStringArray("level", "main", "gold") instance=ExtResource("4_1tcm6")]
+[node name="UiMain" parent="." node_paths=PackedStringArray("level", "gold") instance=ExtResource("4_1tcm6")]
 level = NodePath("../Level")
-main = NodePath("..")
 gold = NodePath("../GoldManager")
 
 [node name="ground" parent="." instance=ExtResource("1_g7tel")]
@@ -48,10 +47,8 @@ environment = SubResource("Environment_b2qt6")
 [node name="directional_light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.631705, 0.775209, 0, -0.775209, 0.631705, 0, 17.4196, 0)
 
-[node name="towers" type="Node3D" parent="." node_paths=PackedStringArray("goldManager")]
+[node name="towers" type="Node3D" parent="."]
 script = ExtResource("7_647q3")
-channel = ExtResource("3_bnq0e")
-goldManager = NodePath("../GoldManager")
 
 [node name="GoldManager" type="Node" parent="."]
 script = ExtResource("7_jyomb")

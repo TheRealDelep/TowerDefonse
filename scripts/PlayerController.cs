@@ -13,7 +13,7 @@ public partial class PlayerController : CharacterBody3D
 
     public override void _Ready()
     {
-        towerConstructionChannel.TowerSelected += OnTowerSelected;
+        if(towerConstructionChannel != null) towerConstructionChannel.TowerSelected += OnTowerSelected;
     }
 
     public override void _PhysicsProcess(double delta)

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dah3jqhxxonhx" path="res://scenes/ui_hud_game.tscn" id="3_cwwc7"]
 [ext_resource type="PackedScene" uid="uid://dtoggnb8qm2mc" path="res://scenes/ui_game_over.tscn" id="4_ejpef"]
 
-[node name="UIMain" type="Control" node_paths=PackedStringArray("uiSelectBuilding", "gameOverScene", "gameOverTimer")]
+[node name="UIMain" type="Control" node_paths=PackedStringArray("uiSelectBuilding", "gameOverScene")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +16,6 @@ grow_vertical = 2
 script = ExtResource("1_pft3p")
 uiSelectBuilding = NodePath("UISelectBuilding")
 gameOverScene = NodePath("UIGameOver")
-gameOverTimer = NodePath("UIGameOver/Timer")
 towerConstructionChannel = ExtResource("2_111um")
 
 [node name="UiHudGame" parent="." instance=ExtResource("3_cwwc7")]

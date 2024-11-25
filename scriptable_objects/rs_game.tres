@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RSGame" load_steps=3 format=3 uid="uid://dvssvj1idoy6j"]
+
+[ext_resource type="Script" path="res://scripts/custom_resources/RSGame.cs" id="1_d63ob"]
+[ext_resource type="PackedScene" uid="uid://bkjvlmfray2yj" path="res://scenes/main.tscn" id="1_puo7i"]
+
+[resource]
+script = ExtResource("1_d63ob")
+MainScene = ExtResource("1_puo7i")

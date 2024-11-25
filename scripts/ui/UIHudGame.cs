@@ -10,7 +10,7 @@ public partial class UIHudGame : Control
 
 	public override void _Process(double delta)
 	{
-		hudCoins.Text = (gold.CurrentGold > 1 ? "Sesterces " : "Sesterce ") + gold.CurrentGold;
-		hudHitPoint.Text = "Hewlett Packard : " + (10 - level.countEnemies);
+		// hudCoins.Text = (gold.CurrentGold > 1 ? "Sesterces " : "Sesterce ") + gold.CurrentGold;
+		// hudHitPoint.Text = "Hewlett Packard : " + (10 - level.countEnemies);
 	}
 }

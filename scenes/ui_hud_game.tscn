@@ -1,6 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://dah3jqhxxonhx"]
+[gd_scene load_steps=12 format=3 uid="uid://dah3jqhxxonhx"]
 
 [ext_resource type="Script" path="res://scripts/ui/UIHudGame.cs" id="1_af504"]
+
+[sub_resource type="Gradient" id="Gradient_6vpbr"]
+offsets = PackedFloat32Array(0.779249)
+colors = PackedColorArray(0.871773, 0.611153, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iarht"]
+noise_type = 5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_enxs2"]
+width = 10
+height = 40
+color_ramp = SubResource("Gradient_6vpbr")
+noise = SubResource("FastNoiseLite_iarht")
+
+[sub_resource type="Gradient" id="Gradient_n8r3h"]
+offsets = PackedFloat32Array(0.646799)
+colors = PackedColorArray(0.530912, 0.33215, 2.88785e-07, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4hixv"]
+noise_type = 0
+frequency = 0.012
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5qt63"]
+width = 10
+height = 40
+color_ramp = SubResource("Gradient_n8r3h")
+noise = SubResource("FastNoiseLite_4hixv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_de4i4"]
+bg_color = Color(1, 0.248357, 0.65072, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fs7g"]
+bg_color = Color(0.14836, 0.61809, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qmv6"]
+border_width_top = 20
+border_width_bottom = 20
+border_color = Color(0.224637, 0.586862, 1.92523e-07, 1)
+
+[sub_resource type="Theme" id="Theme_u3r22"]
+HSlider/icons/grabber = SubResource("NoiseTexture2D_enxs2")
+HSlider/icons/grabber_highlight = SubResource("NoiseTexture2D_5qt63")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_de4i4")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_4fs7g")
+HSlider/styles/slider = SubResource("StyleBoxFlat_4qmv6")
 
 [node name="UiHudGame" type="Control" node_paths=PackedStringArray("hudCoins", "hudHitPoint")]
 layout_mode = 3
@@ -35,3 +80,11 @@ offset_top = 59.0
 offset_right = -97.0
 offset_bottom = -0.296005
 text = "HP : 10"
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 203.0
+offset_top = -12.0
+offset_right = 472.0
+offset_bottom = 161.0
+theme = SubResource("Theme_u3r22")

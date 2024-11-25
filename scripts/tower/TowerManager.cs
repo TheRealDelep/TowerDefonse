@@ -9,6 +9,7 @@ public partial class TowerManager : Node3D
     
     public override void _Ready()
     {
+        if(channel == null) return;
         channel.TowerRequested += OnConstructionRequested;
         channel.TowerRequestCanceled += OnConstructionCanceled;
         channel.TowerSelected += OnConstructionSelected;
